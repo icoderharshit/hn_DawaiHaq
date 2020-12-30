@@ -1,0 +1,596 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>DawaiHaq</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="assets/materialize/css/materialize.min.css" media="screen,projection" />
+	<!-- Bootstrap Styles-->
+
+	<link href="assets/css/bootstrap.css" rel="stylesheet" />
+
+	<!-- FontAwesome Styles-->
+	<link href="assets/css/font-awesome.css" rel="stylesheet" />
+	<!-- Morris Chart Styles-->
+	<link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+	<!-- Custom Styles-->
+	<link href="assets/css/custom-styles.css" rel="stylesheet" />
+	<!-- Google Fonts-->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" href="assets/js/Lightweight-Chart/cssCharts.css">
+
+	<style>
+#qrBox img{
+	width: 140px; 
+	margin: 0 auto;
+	margin-top: 20px;
+
+}
+	</style>
+</head>
+
+<body>
+	<div id="wrapper">
+		<nav class="navbar navbar-default top-navbar" role="navigation">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle waves-effect waves-dark" data-toggle="collapse"
+					data-target=".sidebar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand waves-effect waves-dark" href="index.html"> <strong>DawaiHaq</strong></a>
+
+				<div id="sideNav" href=""><i class="material-icons dp48">toc</i></div>
+			</div>
+
+			<ul class="nav navbar-top-links navbar-right">
+				<li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown4"><i
+							class="fa fa-envelope fa-fw"></i> <i class="material-icons right">arrow_drop_down</i></a>
+				</li>
+
+				<li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown1"><i
+							class="fa fa-user fa-fw"></i> <b id="user">User</b> <i
+							class="material-icons right">arrow_drop_down</i></a></li>
+			</ul>
+		</nav>
+		<!-- Dropdown Structure -->
+		<ul id="dropdown1" class="dropdown-content">
+			<li><a href="/dash.html"><i class="fa fa-user fa-fw"></i> My Profile</a>
+			</li>
+
+			<li><a id="logOut"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+			</li>
+		</ul>
+
+		<ul id="dropdown4" class="dropdown-content dropdown-tasks w250 taskList">
+			<li>
+				<div>
+					<strong id="userm">User</strong>
+					<span class="pull-right text-muted">
+
+					</span>
+				</div>
+				<p id="appointment"></p>
+				</a>
+			</li>
+
+			<li class="divider"></li>
+			<li>
+				<a class="text-center" href="#">
+					<strong>Read All Messages</strong>
+					<i class="fa fa-angle-right"></i>
+				</a>
+			</li>
+		</ul>
+		<!--/. NAV TOP  -->
+		<nav class="navbar-default navbar-side" role="navigation">
+			<div class="sidebar-collapse">
+				<ul class="nav" id="main-menu">
+
+					<li>
+						<a class="active-menu waves-effect waves-dark" href="dash.html"><i class="fa fa-dashboard"></i>
+							Dashboard</a>
+					</li>
+					<li>
+						<a class=" waves-effect waves-dark" href="editprofile.html"><i class="fa fa-dashboard"></i>
+							Update Profle</a>
+					</li>
+					<li>
+						<a class="waves-effect waves-dark" href="completeprofile.html"><i class="fa fa-dashboard"></i>
+							Complete Profle</a>
+					</li>
+					<li>
+						<a class=" waves-effect waves-dark" href="appointment.html"><i class="fa fa-dashboard"></i>
+							Book Appointment</a>
+					</li>
+					<li>
+						<a class="waves-effect waves-dark" href="reset.html"><i class="fa fa-dashboard"></i>
+							Reset Password</a>
+					</li>
+
+				</ul>
+
+			</div>
+
+		</nav>
+		<!-- /. NAV SIDE  -->
+
+		<div id="page-wrapper">
+			<div class="header">
+				
+				<ol class="breadcrumb">
+					<li><a href="/">Home</a></li>
+					<li><a href="./dash.html">Dashboard</a></li>
+					<li class="active">Data</li>
+				</ol>
+
+			</div>
+			<div id="page-inner">
+
+				<div class="dashboard-cards">
+					<h1 style="margin-bottom: 30px;">COVID-19 Stats (India)</h1>
+					<div class="row">
+
+
+						<div class="col-xs-12 col-sm-6 col-md-3">
+
+							<div class="card horizontal cardIcon waves-effect waves-dark">
+								<div class="card-image blue">
+									<i class="material-icons dp48">equalizer</i>
+								</div>
+								<div class="card-stacked blue">
+									<div class="card-content">
+										<h3 id="activecases"></h3>
+									</div>
+									<div class="card-action">
+										<strong>Active Cases</strong>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<div class="col-xs-12 col-sm-6 col-md-3">
+
+							<div class="card horizontal cardIcon waves-effect waves-dark">
+								<div class="card-image orange">
+									<i class="material-icons dp48">trending_up</i>
+								</div>
+								<div class="card-stacked orange">
+									<div class="card-content">
+										<h3><span id="total"></span><sup
+												style="font-size:12px; margin-left: 5px;">+<span
+													id="newcases"></span></sup></h3>
+									</div>
+									<div class="card-action">
+										<strong>Total Cases</strong>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-6 col-md-3">
+
+							<div class="card horizontal cardIcon waves-effect waves-dark">
+								<div class="card-image green">
+									<i class="material-icons dp48">supervisor_account</i>
+								</div>
+								<div class="card-stacked green">
+									<div class="card-content">
+										<h3 id="recovered"></h3>
+									</div>
+									<div class="card-action">
+										<strong>Recovered</strong>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+						<div class="col-xs-12 col-sm-6 col-md-3">
+
+							<div class="card horizontal cardIcon waves-effect waves-dark">
+								<div class="card-image red">
+									<i class="material-icons dp48">trending_up</i>
+								</div>
+								<div class="card-stacked red">
+									<div class="card-content">
+										<h3><span id="deaths"></span><sup
+												style="font-size:12px; margin-left: 5px;">+<span
+													id="deathsnew"></span></sup></h3>
+
+									</div>
+									<div class="card-action">
+										<strong>Deaths</strong>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<!-- /. ROW  -->
+				<h1 class="page-header">
+					Patient Details
+				</h1>
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-7">
+						<div class="cirStats">
+							<div class="row">
+								<div class="col-xs-12 col-sm-6 col-md-6">
+									<div class="card-panel text-center">
+
+										<div class="card" style="width: 100%">
+											<img src="https://www.teamunify.com/efslss/UserFiles/Image/QuickUpload/male_086544.png"
+												class="card-img-top profile-image" alt="..." style="width: 200px;">
+											<div class="card-body profile-data">
+												<h5 class="card-title" style="text-align: center;"
+													id="displayNameHolder">Patient Name</h5>
+
+											</div>
+											<ul class="list-group list-group-flush">
+												<li class="list-group-item">Age : <span id="age"></span></li>
+												<li class="list-group-item">Gender : <span id="gender"></span></li>
+												<li class="list-group-item">Dob: <span id="dob"></span></li>
+												<li class="list-group-item">Contact No.<span id="contact"></span>
+												</li>
+
+											</ul>
+
+
+										</div>
+
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-6 col-md-6">
+									<div class="card-panel text-center">
+										<h2>Blood Group</h2>
+										<div class="easypiechart" id="easypiechart-red" data-percent="100%"><span
+												class="percent" id="blood"></span>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-6 col-md-6">
+									<div class="card-panel text-center " style="padding-bottom: 10px; min-height: 236px;">
+										<div class="col-5"><h2>QR Code</h2></div>
+										<div class="col-7" id="qrBox">
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<!--/.row-->
+					<div class="col-xs-12 col-sm-12 col-md-5">
+
+						<div class="card">
+							<div class="card-action">
+								<b>Last Prescription</b>
+							</div>
+							<div class="card-image">
+								<div class="collection">
+									<a href="#!" class="collection-item" id="med1">...<span class="new badge red"
+											data-badge-caption="Doses"></span></a>
+									<a href="#!" class="collection-item" id="med2">...<span class="new badge blue"
+											data-badge-caption="Doses"></span></a>
+									<a href="#!" class="collection-item" id="med3"><span class="badge"
+											data-badge-caption="Doses"></span>...</a>
+									<a href="#!" class="collection-item" id="med4"><span class="new badge"
+											data-badge-caption="Doses"></span>...</a>
+
+									<a href="#!" class="collection-item"><span class="badge"
+											data-badge-caption="Doses"></span>...</a>
+									<a href="#!" class="collection-item">...<span class="new badge"
+											data-badge-caption="Doses"></span></a>
+									<a href="#!" class="collection-item">...<span class="badge"
+											data-badge-caption="Doses"></span></a>
+									<a href="#!" class="collection-item"
+										style=" font-size:18px; color:red;padding: 27px 20px; ">4 Days
+										until next appointment</a>
+
+								</div>
+							</div>
+
+						</div>
+					</div>
+					<!--/.row-->
+				</div>
+
+
+
+
+
+				<div class="row">
+					<div class="col-md-8 table-responsive"
+						style="padding: 20px 20px; background-color: white; height: 464px;">
+						<div id="centerbox" class="container table-responsive">
+							<h4 style="text-align:center;"><b>Medical History</b></h4>
+							<br><br>
+							<table class="table patient-wrapper table-striped ">
+								<tbody>
+									<tr>
+										<td class=" border-top-0 align-middle">
+											<img src="../../../app-assets/images/portrait/small/avatar-s-1.png" alt=""
+												class="rounded-circle doctor-img">
+										</td>
+										<td class="align-middle border-top-0">Dr. Supriya Dixit</td>
+										<td class="align-middle border-top-0">Dentist</td>
+										<td class="align-middle border-top-0">
+											<i class="la la-calendar-check-o"></i> 15/10/18
+										</td>
+										<td class="align-middle border-top-0">
+											<i class="la la-map-marker"></i> Rohtak , Haryana .
+										</td>
+										<td class="align-middle border-top-0">
+											<i class="la la-circle text-danger"></i> Hospital Visit
+										</td>
+										<td class="align-middle border-top-0">
+											<div class="action">
+												<a href="#"><i class="ft-edit text-success"></i></a>
+												<a href="#"><i class="ft-trash-2 text-warning"></i></a>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td class="align-middle">
+											<img src="../../../app-assets/images/portrait/small/avatar-s-2.png" alt=""
+												class="rounded-circle doctor-img">
+										</td>
+										<td class="align-middle">Dr. Rajeev Bhatia</td>
+										<td class="align-middle">Dermatologist</td>
+										<td class="align-middle">
+											<i class="la la-calendar-check-o"></i> 20/10/18
+										</td>
+										<td class="align-middle">
+											<i class="la la-map-marker"></i> Dwarka , Delhi
+										</td>
+										<td class="align-middle">
+											<i class="la la-circle text-primary"></i> Medical Consultion
+										</td>
+										<td class="align-middle">
+											<div class="action">
+												<a href="#"><i class="ft-edit text-success"></i></a>
+												<a href="#"><i class="ft-trash-2 text-warning"></i></a>
+											</div>
+										</td>
+									</tr>
+
+									<tr>
+										<td class="align-middle border-bottom-0">
+											<img src="../../../app-assets/images/portrait/small/avatar-s-10.png" alt=""
+												class="rounded-circle doctor-img">
+										</td>
+										<td class="align-middle border-bottom-0">Dr. Aditya Sethi</td>
+										<td class="align-middle border-bottom-0">ID Physician</td>
+										<td class="align-middle border-bottom-0">
+											<i class="la la-calendar-check-o"></i> 25/10/18
+										</td>
+										<td class="align-middle border-bottom-0">
+											<i class="la la-map-marker"></i> Rajpura , Punjab
+										</td>
+										<td class="align-middle border-bottom-0">
+											<i class="la la-circle text-danger"></i> Hospital Visit
+										</td>
+										<td class="align-middle border-bottom-0">
+											<div class="action">
+												<a href="#"><i class="ft-edit text-success"></i></a>
+												<a href="#"><i class="ft-trash-2 text-warning"></i></a>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+
+					</div>
+
+					<div class="col-md-4 ">
+						<div class="card">
+							<div class="card-action">
+								<b>Doctor's List</b>
+							</div>
+							<div class="card-image">
+								<ul class="collection">
+									<li class="collection-item avatar">
+										<i class="material-icons circle green">track_changes</i>
+										<span class="title">Dr. Rajeev Bhatia</span>
+										<p>Heart Specialist <br>
+											Fortis Hospital, Mohali
+										</p>
+										<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+									</li>
+									<li class="collection-item avatar">
+										<i class="material-icons circle green">track_changes</i>
+										<span class="title">Dr. PS Sandhu</span>
+										<p> Child Specialist<br>
+											MAX Hospital, New Delhi
+										</p>
+										<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+									</li>
+									<li class="collection-item avatar">
+										<i class="material-icons circle red">track_changes</i>
+										<span class="title">Dr. Divya Satija</span>
+										<p>Cardiologist <br>
+											Lilavati Hospital, Mumbai
+										</p>
+										<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+									</li>
+									<li class="collection-item avatar">
+										<i class="material-icons circle green">track_changes</i>
+										<span class="title">Dr. Renu Batra</span>
+										<p>Dermatologist <br>
+											Apollo Hospital - Chennai
+										</p>
+										<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+
+
+					</div>
+				</div>
+				<!-- /. ROW  -->
+
+
+			</div>
+			<!-- /. PAGE INNER  -->
+		</div>
+		<!-- /. PAGE WRAPPER  -->
+	</div>
+	<!-- /. WRAPPER  -->
+	<!-- JS Scripts-->
+	<!-- jQuery Js -->
+	<script src="assets/js/jquery-1.10.2.js"></script>
+
+	<!-- Bootstrap Js -->
+	<script src="assets/js/bootstrap.min.js"></script>
+
+	<script src="assets/materialize/js/materialize.min.js"></script>
+
+	<!-- Metis Menu Js -->
+	<script src="assets/js/jquery.metisMenu.js"></script>
+	<!-- Morris Chart Js -->
+	<script src="assets/js/morris/raphael-2.1.0.min.js"></script>
+	<script src="assets/js/morris/morris.js"></script>
+
+
+	<script src="assets/js/easypiechart.js"></script>
+	<script src="assets/js/easypiechart-data.js"></script>
+
+	<script src="assets/js/Lightweight-Chart/jquery.chart.js"></script>
+
+	<!-- Custom Js -->
+	<script src="https://cdn.jsdelivr.net/npm/davidshimjs-qrcodejs@0.0.2/qrcode.min.js"></script>
+
+	<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+	<script>
+		var firebaseConfig = {
+			apiKey: "AIzaSyAs5tsHHmTFBKjTRSoJS42OJC13helmTq0",
+			authDomain: "saadahack.firebaseapp.com",
+			databaseURL: "https://saadahack.firebaseio.com",
+			projectId: "saadahack",
+			storageBucket: "saadahack.appspot.com",
+			messagingSenderId: "702033344107",
+			appId: "1:702033344107:web:01424d2231f7671e30632e",
+			measurementId: "G-D6K461P8SK"
+		};
+		firebase.initializeApp(firebaseConfig);
+	</script>
+	<script type="text/javascript">
+		const auth = firebase.auth();
+		const logOut = document.getElementById('logOut');
+		logOut.addEventListener('click', () => {
+
+			auth.signOut()
+				.then(() => {
+					window.location.assign('./signin.html');
+					localStorage.removeItem('id');
+				})
+				.catch(error => {
+					console.error(error);
+				})
+		})
+		var userId = localStorage.getItem('id');
+		firebase.database().ref('Users/' + userId).on('value', function (snapshot) {
+			document.getElementById("qrBox").innerHTML="";
+			var name = (snapshot.val() && snapshot.val().FirstName) + " " + (snapshot.val() && snapshot.val().LastName);
+			var qr = (snapshot.val() && snapshot.val().qr);
+			
+            var qrcode = new QRCode(document.getElementById("qrBox"));
+			
+                var input = userId;
+                qrcode.makeCode(input);
+            
+
+            
+			
+
+
+
+			var dob = (snapshot.val() && snapshot.val().data.Dob);
+			var tele = (snapshot.val() && snapshot.val().data.Phone);
+			
+			var age = (snapshot.val() && snapshot.val().data.Age);
+			var blood = (snapshot.val() && snapshot.val().data.Blood);
+			console.log(snapshot.val())
+			//  var tele=(snapshot.val() && snapshot.val().Phone);
+			//  var address=(snapshot.val() && snapshot.val().Address);
+			var gender = (snapshot.val() && snapshot.val().data.Gender);
+			//  var city=(snapshot.val() && snapshot.val().City);
+			//  var state=(snapshot.val() && snapshot.val().State);
+			//  var dob=(snapshot.val() && snapshot.val().DOB);
+			var fname = (snapshot.val() && snapshot.val().FirstName)
+			console.log(fname)
+			var app = (snapshot.val() && snapshot.val().appointment);
+
+			if (app) {
+				document.getElementById("userm").innerHTML = name;
+				var appointment = "Your appointment has been fixed on " + (snapshot.val() && snapshot.val().appointment.Date) + " at " + (snapshot.val() && snapshot.val().appointment.Time);
+				document.getElementById("appointment").innerHTML = appointment;
+			}
+
+
+
+			if (fname) {
+				document.getElementById('user').innerHTML = fname;
+
+			}
+			
+
+			document.getElementById('displayNameHolder').innerHTML = name;
+			//  document.getElementById('lname').innerHTML=lname;
+			document.getElementById('contact').innerHTML = tele;
+
+			document.getElementById('age').innerHTML = age;
+			document.getElementById('gender').innerHTML = gender;
+			//  document.getElementById('city').innerHTML=city;
+			//  document.getElementById('state').innerHTML=state;
+			document.getElementById('dob').innerHTML = dob;
+			document.getElementById('blood').innerHTML = blood;
+
+		
+			if(snapshot.val()[Object.keys(snapshot.val())[Object.keys(snapshot.val()).length - 6]]){
+				var medicine1 = (snapshot.val()[Object.keys(snapshot.val())[Object.keys(snapshot.val()).length - 6]].Medicine1);
+			var medicine2 = (snapshot.val()[Object.keys(snapshot.val())[Object.keys(snapshot.val()).length - 6]].Medicine2);
+			var medicine3 = (snapshot.val()[Object.keys(snapshot.val())[Object.keys(snapshot.val()).length - 6]].Medicine3);
+			var medicine4 = (snapshot.val()[Object.keys(snapshot.val())[Object.keys(snapshot.val()).length - 6]].Medicine4);
+			}
+			
+			if (medicine1) {
+				document.getElementById('med1').innerHTML = medicine1;
+			}
+			
+
+			if (medicine2) {
+				document.getElementById('med2').innerHTML = medicine2;
+
+			}
+
+			if (medicine3) {
+				document.getElementById('med3').innerHTML = medicine3;
+			} 
+
+			if (medicine4) {
+				document.getElementById('med4').innerHTML = medicine4;
+
+			} 
+
+		});
+	</script>
+,
+
+	<script src="assets/js/custom-scripts.js"></script>
+	<script src="dash.js"></script>
+
+
+</body>
+
+</html>

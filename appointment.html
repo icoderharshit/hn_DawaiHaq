@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>DawaiHaq</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="assets/materialize/css/materialize.min.css" media="screen,projection" />
+	<!-- Bootstrap Styles-->
+
+	<link href="assets/css/bootstrap.css" rel="stylesheet" />
+
+	<!-- FontAwesome Styles-->
+	<link href="assets/css/font-awesome.css" rel="stylesheet" />
+	<!-- Morris Chart Styles-->
+	<link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+	<!-- Custom Styles-->
+	<link href="assets/css/custom-styles.css" rel="stylesheet" />
+	<!-- Google Fonts-->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" href="assets/js/Lightweight-Chart/cssCharts.css">
+	<script
+		type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+	<link href="css/wickedpicker.css" rel="stylesheet" type='text/css' media="all" />
+	<link href="css/style.css" rel='stylesheet' type='text/css' />
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
+</head>
+
+<body>
+	<div id="wrapper">
+		<nav class="navbar navbar-default top-navbar" role="navigation">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle waves-effect waves-dark" data-toggle="collapse"
+					data-target=".sidebar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand waves-effect waves-dark" href="index.html"> <strong>DawaiHaq</strong></a>
+
+				<div id="sideNav" href=""><i class="material-icons dp48">toc</i></div>
+			</div>
+
+			<ul class="nav navbar-top-links navbar-right">
+				<li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown4"><i
+							class="fa fa-envelope fa-fw"></i> <i class="material-icons right">arrow_drop_down</i></a>
+				</li>
+
+				<li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown1"><i
+							class="fa fa-user fa-fw"></i> <b id="user">User</b> <i
+							class="material-icons right">arrow_drop_down</i></a></li>
+			</ul>
+		</nav>
+		<!-- Dropdown Structure -->
+		<ul id="dropdown1" class="dropdown-content">
+			<li><a href="/dash.html"><i class="fa fa-user fa-fw"></i> My Profile</a>
+			</li>
+
+			<li><a id="logOut"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+			</li>
+		</ul>
+
+		<ul id="dropdown4" class="dropdown-content dropdown-tasks w250 taskList">
+			<li>
+				<div>
+					<strong id="userm">User</strong>
+					<span class="pull-right text-muted">
+
+					</span>
+				</div>
+				<p id="appointment"></p>
+				</a>
+			</li>
+
+			<li class="divider"></li>
+			<li>
+				<a class="text-center" href="#">
+					<strong>Read All Messages</strong>
+					<i class="fa fa-angle-right"></i>
+				</a>
+			</li>
+		</ul>
+		<!--/. NAV TOP  -->
+		<nav class="navbar-default navbar-side" role="navigation">
+			<div class="sidebar-collapse">
+				<ul class="nav" id="main-menu">
+
+					<li>
+						<a class=" waves-effect waves-dark" href="dash.html"><i class="fa fa-dashboard"></i>
+							Dashboard</a>
+					</li>
+					<li>
+						<a class=" waves-effect waves-dark" href="editprofile.html"><i class="fa fa-dashboard"></i>
+							Update Profle</a>
+					</li>
+					<li>
+						<a class="waves-effect waves-dark" href="completeprofile.html"><i class="fa fa-dashboard"></i>
+							Complete Profle</a>
+					</li>
+					<li>
+						<a class="active-menu waves-effect waves-dark" href="appointment.html"><i
+								class="fa fa-dashboard"></i>
+							Book Appointment</a>
+					</li>
+					<li>
+						<a class="waves-effect waves-dark" href="reset.html"><i class="fa fa-dashboard"></i>
+							Reset Password</a>
+					</li>
+
+				</ul>
+
+			</div>
+
+		</nav>
+		<!-- /. NAV SIDE  -->
+
+		<div id="page-wrapper">
+			<div class="header">
+				<h1 class="page-header">
+					Book Appointment
+				</h1>
+				<ol class="breadcrumb">
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Dashboard</a></li>
+					<li class="active">Book Appointment</li>
+				</ol>
+
+			</div>
+			<h1> In Pain ? See a Doctor </h1>
+			<div class="bg-agile">
+				<div class="book-appointment">
+					<h2>Make an appointment</h2>
+					
+						<div class="left-agileits-w3layouts same">
+							<div class="gaps">
+								<p>Patient Name</p>
+								<input type="text" name="Patient Name" placeholder="" id="name" required="" />
+							</div>
+							<div class="gaps">
+								<p>Phone Number</p>
+								<input type="text" name="Number" id="phone" placeholder="" required="" />
+							</div>
+							<div class="gaps">
+								<p>Email</p>
+								<input type="email" name="email" placeholder="" id="email" required="" />
+							</div>
+							<div class="gaps">
+								<p>Symptoms</p>
+								<textarea name="About Symptoms" placeholder="" id="symptoms" required=""></textarea>
+							</div>
+						</div>
+						<div class="right-agileinfo same">
+							<div class="gaps">
+								<p>Select Date</p>
+								<input id="datepicker1" name="Text" type="text" value="" onfocus="this.value = '';"
+									onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
+							</div>
+							<div class="gaps">
+								<p>Department</p>
+								<select class="form-control" id="dep">
+									<option></option>
+									<option>Cardiology</option>
+									<option>Ophthalmology</option>
+									<option>Neurology</option>
+									<option>Psychology</option>
+									<option>Dermatology</option>
+								</select>
+							</div>
+							<div class="gaps">
+								<p>Gender</p>
+								<select class="form-control" id="gender">
+									<option></option>
+									<option>Male</option>
+									<option>Female</option>
+								</select>
+							</div>
+							<div class="gaps">
+								<p>Time</p>
+								<input type="text" id="timepicker" name="Time" class="timepicker form-control" value="">
+							</div>
+						</div>
+						<div class="clear"></div>
+						<input type="submit" id="submit" value="Make an appointment">
+					
+				</div>
+			</div>
+		</div>
+		<!-- /. PAGE WRAPPER  -->
+	</div>
+	<!-- /. WRAPPER  -->
+	<!-- JS Scripts-->
+	<!-- jQuery Js -->
+	<script src="assets/js/jquery-1.10.2.js"></script>
+
+	<!-- Bootstrap Js -->
+	<script src="assets/js/bootstrap.min.js"></script>
+
+	<script src="assets/materialize/js/materialize.min.js"></script>
+
+	<!-- Metis Menu Js -->
+	<script src="assets/js/jquery.metisMenu.js"></script>
+	<!-- Morris Chart Js -->
+	<script src="assets/js/morris/raphael-2.1.0.min.js"></script>
+	<script src="assets/js/morris/morris.js"></script>
+
+
+	<script src="assets/js/easypiechart.js"></script>
+	<script src="assets/js/easypiechart-data.js"></script>
+
+	<script src="assets/js/Lightweight-Chart/jquery.chart.js"></script>
+
+	<!-- Custom Js -->
+	<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+	<script>
+		var firebaseConfig = {
+			apiKey: "AIzaSyAs5tsHHmTFBKjTRSoJS42OJC13helmTq0",
+			authDomain: "saadahack.firebaseapp.com",
+			databaseURL: "https://saadahack.firebaseio.com",
+			projectId: "saadahack",
+			storageBucket: "saadahack.appspot.com",
+			messagingSenderId: "702033344107",
+			appId: "1:702033344107:web:01424d2231f7671e30632e",
+			measurementId: "G-D6K461P8SK"
+		};
+		firebase.initializeApp(firebaseConfig);
+	</script>
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="js/wickedpicker.js"></script>
+	<script type="text/javascript">
+		$('.timepicker').wickedpicker({ twentyFour: false });
+	</script>
+
+	<link rel="stylesheet" href="css/jquery-ui.css" />
+	<script src="js/jquery-ui.js"></script>
+	<script>
+		$(function () {
+			$("#datepicker,#datepicker1,#datepicker2,#datepicker3").datepicker();
+		});
+	</script>
+	<!-- <script type="text/javascript">
+
+		var userId = localStorage.getItem('id');
+		firebase.database().ref('Users/' + userId).on('value', function (snapshot) {
+			var fname = (snapshot.val() && snapshot.val().FirstName)
+			console.log(fname)
+
+			if (fname) {
+				document.getElementById('user').innerHTML = fname;
+
+			}
+			if (app) {
+				document.getElementById("userm").innerHTML = name;
+				var appointment = "Your appointment has been fixed on " + (snapshot.val() && snapshot.val().appointment.Date) + " at " + (snapshot.val() && snapshot.val().appointment.Time);
+				document.getElementById("appointment").innerHTML = appointment;
+			}
+
+		});
+	</script> -->
+	<script type="text/javascript">
+
+		var userId = localStorage.getItem('id');
+		firebase.database().ref('Users/' + userId).on('value', function (snapshot) {
+			var fname = (snapshot.val() && snapshot.val().FirstName)
+			console.log(fname)
+
+			if (fname) {
+				document.getElementById('user').innerHTML = fname;
+
+			}
+
+			var app = (snapshot.val() && snapshot.val().appointment);
+			if (app) {
+				document.getElementById("userm").innerHTML = name;
+				var appointment = "Your appointment has been fixed on " + (snapshot.val() && snapshot.val().appointment.Date) + " at " + (snapshot.val() && snapshot.val().appointment.Time);
+				document.getElementById("appointment").innerHTML = appointment;
+			}
+
+		});
+	</script>
+	<script type="text/javascript">
+		const auth = firebase.auth();
+		const logOut = document.getElementById('logOut');
+		logOut.addEventListener('click', () => {
+
+			auth.signOut()
+				.then(() => {
+					window.location.assign('./signin.html');
+					localStorage.removeItem('id');
+				})
+				.catch(error => {
+					console.error(error);
+				})
+		})
+		var userId = localStorage.getItem('id');
+
+
+
+		document.querySelector("#submit").addEventListener("click", function () {
+
+			firebase.database().ref('Users/' + userId).on('value', function (snapshot) {
+
+				console.log(snapshot.val());
+				var name = document.getElementById("name").value;
+				var email = document.getElementById("email").value;
+				var phone = document.getElementById("phone").value;
+				var symptoms = document.getElementById("symptoms").value;
+				var gender = document.getElementById("gender").value;
+				var dep = document.getElementById("dep").value;
+				var date = document.getElementById("datepicker1").value;
+				var time = document.getElementById("timepicker").value;
+
+				let userRef = firebase.database().ref('Users/' + userId);
+				userRef.child('appointment').set({ 'Name': name, 'Gender': gender, 'Phone': phone, 'Email': email, 'Symptoms': symptoms, 'Dep': dep, 'Date': date, 'Time': time }).then(() => {
+					alert('Appointment booked Successfully !');
+					console.log(snapshot.val());
+				})
+					.catch(error => {
+						console.error(error);
+					})
+
+			});
+
+		})
+	</script>
+
+
+	<script src="assets/js/custom-scripts.js"></script>
+</body>
+
+</html>

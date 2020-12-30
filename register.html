@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/register.css">
+</head>
+
+<body>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent" class="path-nav">
+            <li class="breadcrumb-item"><a href="./index.html" style="color: red;">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Register</li>
+        </ol>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 d-none d-md-none d-lg-block">
+                <img src="./assets/images/img.png" style="height:70vh;margin-top: 13vh;">
+            </div>
+            <div class="col-lg-8 col-md-12">
+                <h1 class="text-center">Quick Register</h1>
+                <div class="form">
+                    <label for="fname">
+                        <input type="text" placeholder="First Name" id="fname">
+                    </label><br />
+                    <label for="lname">
+                        <input type="text" placeholder="Last Name" id="lname">
+                    </label><br />
+                    <label id="reglab"> Registering as :</label> <br>
+                    <select id="typee">
+                        <option name="drop" value="Not Selected">Select</option>
+                        <option name="drop" value="Chemist">Chemist</option>
+                        <option name="drop" value="Doctor">Doctor</option>
+                        <option name="drop" value="Patient">Patient</option>
+                    </select><br />
+                    <label for="email">
+                        <input type="email" placeholder="Email Id" id="email">
+                    </label><br />
+                    <label for="password">
+                        <input type="password" placeholder="Password" id="password">
+                    </label>
+                    <button class="btn btn-outline-danger d-block ml-auto mr-auto"
+                        onclick="RegisterUser()">Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyAs5tsHHmTFBKjTRSoJS42OJC13helmTq0",
+            authDomain: "saadahack.firebaseapp.com",
+            databaseURL: "https://saadahack.firebaseio.com",
+            projectId: "saadahack",
+            storageBucket: "saadahack.appspot.com",
+            messagingSenderId: "702033344107",
+            appId: "1:702033344107:web:01424d2231f7671e30632e",
+            measurementId: "G-D6K461P8SK"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+
+        function RegisterUser() {
+            var opt;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var fname = document.getElementById('fname').value;
+            var lname = document.getElementById('lname').value;
+            var sel = document.getElementById('typee');
+            function getSelectedOption(sel) {
+
+                for (var i = 0, len = sel.options.length; i < len; i++) {
+                    opt = sel.options[i];
+                    if (opt.selected === true) {
+                        break;
+                    }
+                }
+                return opt;
+            }
+            var opt = getSelectedOption(sel);
+            firebase.auth().createUserWithEmailAndPassword(email, password).then(function () {
+
+                var id = firebase.auth().currentUser.uid;
+                firebase.database().ref('/Users/' + id).set({
+                    FirstName: fname,
+                    LastName: lname,
+                    Type: opt.value
+                });
+                sendVerificationEmail();
+
+
+            }).catch(function (error) {
+
+                var errorcode = error.code;
+                var errormsg = error.message;
+                alert("Error: " + errorcode + ", " + errormsg);
+            });
+
+            const auth = firebase.auth();
+
+            auth.useDeviceLanguage();
+
+            const sendVerificationEmail = () => {
+
+                auth.currentUser.sendEmailVerification()
+                    .then(() => {
+                        alert('Verification Email Sent Successfully, please check and sign in !');
+
+
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    })
+            };
+
+
+
+            auth.onAuthStateChanged(user => {
+                if (user && (state === 0))
+                    window.location.assign('./completeprofile.html');
+            })
+
+
+
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DawaiHaq</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <style>
+    a {
+      text-decoration: none;
+    }
+
+    .fa {
+      color: #f84949;
+      font-weight: 800;
+      margin-top: 2%;
+      margin-right: 1.7%;
+    }
+
+    .data {
+      margin-top: 2%;
+    }
+
+    form {
+      margin: 0 auto;
+      display: table;
+      margin-bottom: 2%;
+    }
+
+    .contact-heading {
+      margin-bottom: 7%;
+    }
+
+    .contact-data {
+      width: 700px;
+      height: 45px;
+      outline: transparent;
+      border: none;
+      margin-bottom: 2%;
+      border-bottom: 2px solid black;
+      border-radius: 10px;
+      padding-left: 14px;
+    }
+
+    .contact-data:focus {
+
+      border-bottom: 2px solid #f84949;
+    }
+
+    .contact-data2 {
+      width: 700px;
+      height: 75px;
+      border-radius: 10px;
+      outline: transparent;
+      border: none;
+      padding-left: 14px;
+      margin-left: 0px !important;
+      border-bottom: 2px solid black;
+    }
+
+    .contact-data2:focus {
+      border-bottom: 2px solid #f84949;
+    }
+
+    button {
+      width: 100px;
+      height: 35px;
+      letter-spacing: 1px;
+      background-color: #f84949;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      margin: 0 auto;
+      display: table;
+    }
+
+    button:hover {
+      background-color: white;
+      border: 2px solid #f84949;
+      border-radius: 4px;
+      color: #f84949;
+      font-weight: 700;
+    }
+
+    @media (max-width: 768px) {
+      .contact-data {
+        margin-left: 1%;
+        width: 420px;
+      }
+
+      .contact-data2 {
+        margin-left: 1%;
+        width: 420px;
+      }
+    }
+
+    .picture {
+
+      display: flex;
+      justify-content: space-evenly;
+      margin: 10%;
+      margin-bottom: 4%;
+    }
+
+    .img-with-text {
+      text-align: justify;
+      width: 100px;
+    }
+
+    .bmi {
+      display: block;
+      height: 400px;
+      margin: 0 auto;
+    }
+
+    .img-with-text img {
+      display: block;
+      margin: 0 auto;
+      height: 110px;
+    }
+
+    .arrow:hover {
+      color: #f84949 !important;
+    }
+
+    #thanks {
+      text-align: center;
+    }
+
+    @media (max-width:768px) {
+      body {
+        overflow-x: hidden;
+      }
+    }
+
+    @media (max-width:768px) {
+      .knowmore {
+        height: 40px !important;
+        font-size: 18px;
+      }
+    }
+
+
+    .our-team {
+      padding: 30px 0 40px;
+      margin-bottom: 30px;
+      background-color: #fdfdfd;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 1px 1px 3px rgb(192, 192, 192);
+    }
+
+    .our-team .picture {
+      display: inline-block;
+      height: 130px;
+      width: 130px;
+      margin-bottom: 50px;
+      z-index: 1;
+      position: relative;
+    }
+
+    .our-team .picture::before {
+      content: "";
+      width: 100%;
+      height: 0;
+      border-radius: 50%;
+      background-color: #f5403a;
+      position: absolute;
+      bottom: 135%;
+      right: 0;
+      left: 0;
+      opacity: 0.9;
+      transform: scale(3);
+      transition: all 0.3s linear 0s;
+    }
+
+    .our-team:hover .picture::before {
+      height: 100%;
+    }
+
+    .our-team .picture::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      /* background-color: #1369ce; */
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    .our-team .picture img {
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+      transform: scale(1);
+      transition: all 0.9s ease 0s;
+    }
+
+    .our-team:hover .picture img {
+      box-shadow: 0 0 0 14px #f7f5ec;
+      transform: scale(0.7);
+    }
+
+    .our-team .title {
+      display: block;
+      font-size: 15px;
+      color: #4e5052;
+      text-transform: capitalize;
+    }
+
+    .our-team .social {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      background-color: #f5403a;
+      position: absolute;
+      bottom: -100px;
+      left: 0;
+      transition: all 0.5s ease 0s;
+    }
+
+    .our-team:hover .social {
+      bottom: 0;
+    }
+
+    .our-team .social li {
+      display: inline-block;
+    }
+
+    .our-team .social li a {
+      display: block;
+      padding: 10px;
+      font-size: 17px;
+      color: white;
+      transition: all 0.3s ease 0s;
+      text-decoration: none;
+    }
+
+    .our-team .social li a:hover {
+      color: #f5403a;
+      background-color: #f7f5ec;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-expand-md navbar-light fixed-top nav-normal " id="navbar"
+      style="width: 100vw !important;">
+      <a class="navbar-brand" href="./index.html" style="font-family: 'Montserrat', sans-serif;font-weight: 800;"><img
+          src="./assets/images/dawaihaq_logo.png" alt=""></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsed-content"
+        aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navigation__icon">
+          &nbsp;
+        </span>
+        </label>
+      </button>
+      <div class="collapse navbar-collapse" style="justify-content: flex-end;" id="collapsed-content">
+        <ul class="navbar-nav ">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#ab">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#profiles " id="navbarDropdown" role="button"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              PROFILE
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="./signin.html">SIGN IN</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="./register.html">REGISTER</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="./membership.html">MEMBERSHIP</a>
+            </div>
+
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="color: black !important;" href="./dash.html"><i class="fa fa-user"
+                style="display: inline; color: black !important;"></i><span id="user">User</span></a>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+  </header>
+  <main id="main">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators" style="top: 470px;">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"
+          style="background-color: #777777;"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1" style="background-color: #777777;"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2" style="background-color: #777777;"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="heading col-lg-6 col-sm-10 ml-sm-auto mr-sm-auto">
+                <img src="assets/images/banner-text.png" class="banner-text img-responsive">
+                <a href=" #reforms" style="text-decoration: none;">
+                  <button class="knowmore"
+                    style="width: 200px;height: 50px;margin-top: 6%;margin-left: 30%;font-family: 'Montserrat', sans-serif;font-weight: 600;">
+                    Know More</button></a>
+              </div>
+              <img src="assets/images/banner-art.png"
+                class="banner-img col-lg-6 col-sm-8 ml-sm-auto mr-sm-auto img-responsive">
+            </div>
+
+
+          </div>
+
+        </div>
+        <div class="carousel-item">
+          <div class="container-fluid">
+            <div class="row">
+              <h1
+                style="position:absolute;color: #f7f5ec;font-family: Montserrat;font-weight: bold;top: 45%;left: 33%;">
+                Revolutionising Healthcare</h1>
+              <img class="d-block w-100"
+                src="https://static9.depositphotos.com/1034517/1091/v/600/depositphotos_10910036-stock-illustration-blood-donation.jpg"
+                alt="Second slide" class="col-lg-12 col-sm-12 ml-sm-auto mr-sm-auto img-responsive" height="450">
+            </div>
+
+
+          </div>
+
+
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="https://miro.medium.com/proxy/1*xFNqxHNTuUa8czXh_Uoceg.jpeg" alt="Third slide"
+            height="450">
+        </div>
+      </div>
+
+    </div>
+    <!-- <div class="container-fluid">
+      <div class="row">
+        <div class="heading col-lg-6 col-sm-10 ml-sm-auto mr-sm-auto">
+          <img src="assets/images/banner-text.png" class="banner-text">
+          <a href=" #reforms" style="text-decoration: none;">
+            <button class="knowmore"
+              style="width: 200px;height: 50px;margin-top: 6%;margin-left: 30%;font-family: 'Montserrat', sans-serif;font-weight: 600;">
+              Know More</button></a>
+        </div>
+        <img src="assets/images/banner-art.png" class="banner-img col-lg-6 col-sm-8 ml-sm-auto mr-sm-auto">
+      </div>
+
+
+    </div> -->
+
+  </main>
+  <!-- <a href="#aboutt">
+  <div class="boxx">
+    <span></span>
+    <span></span>
+    <span></span>
+    </div></a> -->
+  <a href="#aboutt">
+    <div id="scroll-down-animation">
+      <span class="mouse">
+        <span class="move"></span>
+      </span>
+    </div>
+  </a>
+  <div class="container-fluid" style="background-color: #fdfdfd; padding: 140px 0;" id="aboutt">
+    <div class="container-fluid">
+      <h2 class="h2-responsive text-center about-heading " id="ab"
+        style="font-family: 'Montserrat', sans-serif;font-weight: bolder;">About <span
+          style=" color: #f84949;">Us</span></h2>
+      <div class="container row about-container">
+        <div class="col-md-4 col-sm-6 about-card s-box ">
+          <div class="bar"></div>
+          <img alt="3"
+            src="https://downloads.healthcatalyst.com/wp-content/uploads/2016/10/EHR-vs-Data-Warehouse.png" /><br />
+          <h1>Paperless</h1>
+          <p>As a sector that strives to establish a healthy world, digitalization or the paperless operations system in
+            healthcare industry is a necessity than a need.</p>
+        </div>
+        <div class="col-md-4 col-sm-6 about-card s-box">
+          <div class="bar"></div>
+          <img alt="3" src="https://i.pinimg.com/originals/95/d1/0f/95d10f502e973b4a79dae1e1882f623e.png" /><br />
+          <h1>Biometric</h1>
+          <p>Healthcare biometrics allow users to access applications and patient data quickly - clinicians simply touch
+            a fingerprint scanner and get instant access to the records they need on any workstation.</p>
+        </div>
+        <div class="col-md-4 col-sm-6 about-card s-box">
+          <div class="bar"></div>
+          <img alt="3"
+            src="https://www.kindpng.com/picc/m/198-1985147_pediatric-telemedicine-for-kids-doctor-online-icon-png.png"
+            style="border-radius: 50%;" /><br />
+          <h1>Appointment</h1>
+          <p>For your first visit to hospital, registration and appointment with doctor is made simpler. All you have to
+            do is verify yourself using ID, and view all your recent and previous appointments .</p>
+        </div>
+        <div class="col-md-4 col-sm-6 about-card s-box">
+          <div class="bar"></div>
+          <img alt="3"
+            src="https://cdn.iconscout.com/icon/free/png-256/health-fitness-care-safe-fresh-heart-1-4142.png" /><br />
+          <h1>SelfCare</h1>
+          <p>In healthcare, self-care is any necessary human regulatory function which is under individual control,
+            deliberate and self-initiated.</p>
+        </div>
+        <div class="col-md-4 col-sm-6 about-card s-box">
+          <div class="bar"></div>
+          <img alt="3"
+            src="https://www.pngkit.com/png/full/524-5245503_privacy-independent-filmmaker-project-logo.png" /><br />
+          <h1>Data Privacy</h1>
+          <p>Patient privacy is your right to decide when, how, and to what extent others may access your health
+            information. Patient privacy maintains confidentiality and only shares PHI with those who need it to provide
+            or improve medical care.</p>
+        </div>
+        <div class="col-md-4 col-sm-6 about-card s-box">
+          <div class="bar"></div>
+          <img alt="3" src="https://www.flaticon.com/svg/static/icons/svg/504/504018.svg" /><br />
+          <h1>Updates</h1>
+          <p>We keep the patients profile up to date for ease . Appointments and Prescription data is updated as per the
+            visits .</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 1% 0;">
+    <div class="basic-2">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="image-container">
+              <img class="img-fluid future" src="./assets/images/fu.jpg" alt="alternative">
+            </div>
+          </div>
+          <div class="col-lg-6" id="reforms">
+            <div class="text-container">
+              <h1 class="h2-responsive " style="font-family: 'Montserrat', sans-serif;font-weight: bolder;">Future<span
+                  style="color: #f84949;font-weight:bolder;"> Plans</span></h1>
+              <ul class="list-unstyled li-space-lg">
+                <li class="media">
+                  <i class="fa fa-stethoscope" aria-hidden="true"></i>
+                  <div class="media-body data"> Connecting, Chemists, Doctors and Patients altogether.
+                  </div>
+                </li>
+                <li class="media">
+                  <i class="fa fa-stethoscope" aria-hidden="true"></i>
+                  <div class="media-body data">
+                    Least discrepancy of the harmful drugs/medicines. </div>
+                </li>
+                <li class="media">
+                  <i class="fa fa-stethoscope" aria-hidden="true"></i>
+                  <div class="media-body data"> Making things easier for doctors & patients.
+                  </div>
+                </li>
+                <li class="media">
+                  <i class="fa fa-stethoscope " aria-hidden="true"></i>
+                  <div class="media-body data">Regular updates to patients regarding their health.
+                  </div>
+                </li>
+                <li class="media">
+                  <i class="fa fa-stethoscope" aria-hidden="true"></i>
+                  <div class="media-body data"> Suggestions for better maintaining health. </div>
+                </li>
+                <li class="media">
+                  <i class="fa fa-stethoscope" aria-hidden="true"></i>
+                  <div class="media-body data"> Creating a network for better future. </div>
+                </li>
+                <li class="media">
+                  <i class="fa fa-stethoscope" aria-hidden="true"></i>
+                  <div class="media-body data"> Giving regular fitness tips. </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    style="border:2px solid #f84949;height:max-content;margin-left: auto;margin-right: auto;margin-top: 6%;border-radius: 5px;width: 800px;max-width: 98vw;">
+    <h2 class="h2-responsive text-center "
+      style="margin-top: 5.5%;letter-spacing: 2px;font-family: 'Montserrat', sans-serif;font-size: 45px;">Get Yourself
+      Register With Us</h2>
+    <div style="margin-left: 23%;margin-right: 23%;background-color: rgb(226, 225, 225);""><hr></div>
+   <a href=" ./register.html" style="text-decoration: none;"> <button
+        style="width: 250px;height: 50px;margin-bottom: 4%;"> Join Us
+        Free</button></a>
+
+    </div>
+    <h3 class="h3-responsive text-center"
+      style="margin-top: 8%;font-size: 45px;font-family: 'Montserrat', sans-serif;font-weight: 700;">
+      Log In as :</h3>
+    <div style="margin-left: 23%;margin-right: 23%;background-color: rgb(170, 170, 170);""><hr></div>
+  
+<div class=" card-deck" id="#profiles " style="margin-left: 25%;margin-right: 25%;">
+      <div class="card" style="border: none;">
+        <img class="card-img-top" src="./assets/images/doctor.svg" style="height: 320px;" alt="Card image cap">
+        <div class="card-body">
+          <a href="./doctor.html" style="text-decoration: none;"> <button>DOCTOR</button></a>
+        </div>
+
+      </div>
+      <div class="card" style="border: none;">
+        <img class="card-img-top" src="./assets/images/first-aid-kit-doctor.svg" style="height: 320px;"
+          alt="Card image cap">
+        <div class="card-body">
+          <a href="./sample.html" style="text-decoration: none;"> <button>CHEMIST</button></a>
+        </div>
+
+      </div>
+      <div class="card" style="border: none;">
+        <img class="card-img-top" src="./assets/images/fracture-broken.svg" style="height: 320px;" alt="Card image cap">
+        <div class="card-body">
+          <a href="./dash.html" style="text-decoration: none;"> <button>PATIENT</button></a>
+        </div>
+
+      </div>
+
+    </div>
+    <div style="margin-left: 23%;margin-right: 23%;margin-bottom: 3%;background-color: rgb(170, 170, 170);">
+      <hr>
+    </div>
+    <div class="container-fluid" style="background-color: #f5f5f5; padding: 150px 0;">
+      <div class="basic-1" id="agenda">
+        <div class=" container">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="text-container" style="margin-top: 9%;">
+                <h1 class="h2-responsive text-center contact-heading">Want to Check your
+                  <br /> <span style="font-weight:bolder;letter-spacing: 4px;font-size: 60px;">BMI ?</span>
+                </h1>
+                <p>
+                  <a href="./bmi.html" style="text-decoration: none;"><button
+                      style="height: 50px;width: 200px;letter-spacing: 3px;">Click Here</button>
+                  </a>
+                </p>
+
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="image-container">
+                <img class="img-fluid bmi" src="./assets/images/bmi.svg" alt="alternative">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="contact" style="margin-top: 4%;">
+      <form>
+        <h1 class="h2-responsive text-center contact-heading">How can we <span
+            style="color: #f84949;font-weight:bolder;font-family: 'Montserrat', sans-serif;">Help you?</span></h1>
+        <input style="width:800px;max-width: 98vw" type="text" placeholder="Name" class="contact-data" id="username"
+          required /><br />
+        <input style="width:800px;max-width: 98vw;" type="email" placeholder="Email" class="contact-data" required />
+        <br />
+        <label for="address"><textarea type="text" style="width:800px;max-width: 98vw;" placeholder="Message"
+            class="contact-data2" required></textarea>
+        </label>
+        <br />
+      </form>
+      <button onclick="send()">Send</button>
+      <p id="thanks"></p>
+    </div>
+
+    <h1 class="text-center" style="margin-top: 6%;margin-bottom: 30px;">Our Team</h1>
+    <div class="container" style="margin-bottom: 8%;">
+      <div class="row">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="our-team">
+            <div class="picture">
+              <img class="img-fluid"
+                src="https://image.freepik.com/free-vector/woman-avatar-profile-round-icon_24640-14042.jpg">
+            </div>
+            <div class="team-content">
+              <h3 class="name">Bhavika Malhotra</h3>
+              <h4 class="title">Web Developer</h4>
+            </div>
+            <ul class="social">
+              <li><a href="" class="fa fa-facebook" aria-hidden="true"></a></li>
+              <li><a href="" class="fa fa-twitter" aria-hidden="true"></a></li>
+              <li><a href="" class="fa fa-google-plus" aria-hidden="true"></a></li>
+              <li><a href="" class="fa fa-linkedin" aria-hidden="true"></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="our-team">
+            <div class="picture">
+              <img class="img-fluid"
+                src="https://www.pngitem.com/pimgs/m/78-786293_1240-x-1240-0-avatar-profile-icon-png.png">
+            </div>
+            <div class="team-content">
+              <h3 class="name">Harshit Sharma</h3>
+              <h4 class="title">Web Developer</h4>
+            </div>
+            <ul class="social">
+              <li><a href="" class="fa fa-facebook" aria-hidden="true"></a></li>
+              <li><a href="" class="fa fa-twitter" aria-hidden="true"></a></li>
+              <li><a href="" class="fa fa-google-plus" aria-hidden="true"></a></li>
+              <li><a href="" class="fa fa-linkedin" aria-hidden="true"></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="our-team">
+            <div class="picture">
+              <img class="img-fluid"
+                src="https://image.freepik.com/free-vector/woman-avatar-profile-round-icon_24640-14042.jpg">
+            </div>
+            <div class="team-content">
+              <h3 class="name">Swati Bhatia</h3>
+              <h4 class="title">Web Developer</h4>
+            </div>
+            <ul class="social">
+              <li><a href="" class="fa fa-facebook" aria-hidden="true"></a></li>
+              <li><a href="" class="fa fa-twitter" aria-hidden="true"></a></li>
+              <li><a href="" class="fa fa-google-plus" aria-hidden="true"></a></li>
+              <li><a href="" class="fa fa-linkedin" aria-hidden="true"></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="our-team">
+            <div class="picture">
+              <img class="img-fluid"
+                src="https://www.pngitem.com/pimgs/m/78-786293_1240-x-1240-0-avatar-profile-icon-png.png">
+            </div>
+            <div class="team-content">
+              <h3 class="name">Deepak Singh</h3>
+              <h4 class="title">Web Developer</h4>
+            </div>
+            <ul class="social">
+              <li><a href="" class="fa fa-facebook" aria-hidden="true"></a></li>
+              <li><a href="" class="fa fa-twitter" aria-hidden="true"></a></li>
+              <li><a href="" class="fa fa-google-plus" aria-hidden="true"></a></li>
+              <li><a href="" class="fa fa-linkedin" aria-hidden="true"></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-left">
+        <img src="/public/images/logo.png" alt="">
+        <p>&copy DawaiHaq 2020</p>
+      </div>
+      <ul class="footer-right">
+        <li>
+          <h2>Navigation</h2>
+          <ul class="box">
+            <li><a href="#">Home</a></li>
+            <li><a href="#ab">About Us</a></li>
+            <li><a href="./register.html">Work With Us</a></li>
+            <li><a href="./bmi.html">Calculate BMI</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </li>
+        <li class="features">
+          <h2>About</h2>
+          <ul class="box">
+            <li><a href="./membership.html">Privacy Policy</a></li>
+            <li><a href="#ab">Disclaimer</a></li>
+            <li><a href="./membership.html">Membership</a></li>
+            <li><a href="./membership.html">Terms and Conditions</a></li>
+          </ul>
+        </li>
+        <li>
+          <h2>Address</h2>
+          <ul class="box">
+            <li><a href="#">Contact No. </a></li>
+            <li><a href="#">209-988-8310</a></li>
+            <li><a href="#">209-924-9497</a></li>
+            <li><a href="#">425-598-3295</a></li>
+            <li><a href="#">sample@gmail.com</a></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="footer-bottom">
+        <p style="font-family: 'Montserrat', sans-serif;">All Rights reserved</p>
+      </div>
+    </footer>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="./assets/js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyAs5tsHHmTFBKjTRSoJS42OJC13helmTq0",
+    authDomain: "saadahack.firebaseapp.com",
+    databaseURL: "https://saadahack.firebaseio.com",
+    projectId: "saadahack",
+    storageBucket: "saadahack.appspot.com",
+    messagingSenderId: "702033344107",
+    appId: "1:702033344107:web:01424d2231f7671e30632e",
+    measurementId: "G-D6K461P8SK"
+  };
+  firebase.initializeApp(firebaseConfig);
+</script>
+<script type="text/javascript">
+
+  var userId = localStorage.getItem('id');
+  firebase.database().ref('Users/' + userId).on('value', function (snapshot) {
+    var name = (snapshot.val() && snapshot.val().FirstName)
+    console.log(snapshot.val())
+
+    //  var tele=(snapshot.val() && snapshot.val().Phone);
+    //  var address=(snapshot.val() && snapshot.val().Address);
+    //  var gender=(snapshot.val() && snapshot.val().Gender);
+    //  var city=(snapshot.val() && snapshot.val().City);
+    //  var state=(snapshot.val() && snapshot.val().State);
+    //  var dob=(snapshot.val() && snapshot.val().DOB);
+    if (name)
+      document.getElementById('user').innerHTML = name;
+    //  document.getElementById('lname').innerHTML=lname;
+    //  document.getElementById('phone').innerHTML=tele;
+    //  document.getElementById('address').innerHTML=address;
+    //  document.getElementById('gender').innerHTML=gender;
+    //  document.getElementById('city').innerHTML=city;
+    //  document.getElementById('state').innerHTML=state;
+    //  document.getElementById('dob').innerHTML=dob;
+  });
+</script>
+
+</html>
